@@ -1,0 +1,326 @@
+﻿@page "/"
+
+
+<div class="md:flex md:items-center md:justify-between">
+    <div class="flex-1 min-w-0">
+        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+            New Contact
+        </h2>
+    </div>
+    @*<div class="mt-4 flex md:mt-0 md:ml-4">
+            <span class="shadow-sm rounded-md">
+                <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
+                    Edit
+                </button>
+            </span>
+            <span class="ml-3 shadow-sm rounded-md">
+                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+                    Publish
+                </button>
+            </span>
+        </div>*@
+
+
+</div>
+
+<div class="max-w-lg">
+
+
+    <div class="mt-8 border-t border-gray-200 pt-8">
+        <div>
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Contact Information
+            </h3>
+            <p class="mt-1 text-sm leading-5 text-gray-500">
+            </p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
+
+            <div class="sm:col-span-6">
+                <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">
+                    Contact Code
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <input id="first_name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                </div>
+            </div>
+
+            <div class="sm:col-span-6">
+                <label for="title" class="block text-sm font-medium leading-5 text-gray-700">
+                    Contact Type
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <select @bind="ContactType" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <option>Individual</option>
+                        <option>Business</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 border-t border-gray-200 pt-8">
+        <div>
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                @(ContactType == "Individual" ? "Personal" : "Business") Information
+            </h3>
+            <p class="mt-1 text-sm leading-5 text-gray-500">
+            </p>
+        </div>
+        <div class="mt-6 grid grid-cols-1 row-gap-6 col-gap-4 sm:grid-cols-6">
+
+            @if (ContactType == "Individual")
+            {
+                <div class="sm:col-span-6">
+                    <label for="title" class="block text-sm font-medium leading-5 text-gray-700">
+                        Title
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <select id="title" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>Mr</option>
+                            <option>Mrs</option>
+                            <option>Miss</option>
+                            <option>Ms.</option>
+                            <option>Sir</option>
+                            <option>Dr</option>
+                            <option>etc...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">
+                        First name
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="first_name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">
+                        Last name
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="last_name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+            }
+
+            @if (ContactType == "Business")
+            {
+                <div class="sm:col-span-6">
+                    <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">
+                        Name
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="surname" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+            }
+
+
+
+
+            @*<div class="sm:col-span-4">
+                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
+                        Email address
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="email" type="email" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>*@
+
+            <div class="sm:col-span-6">
+                <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">
+                    Mailing Name
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <input id="last_name" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                </div>
+            </div>
+
+            <div class="sm:col-span-6">
+                <label for="street_address" class="block text-sm font-medium leading-5 text-gray-700">
+                    Address
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <textarea id="street_address" rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                </div>
+            </div>
+
+            <div class="sm:col-span-2">
+                <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
+                    Country / Region
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <select id="country" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                        <option>Guernsey</option>
+                        <option>United Kingdom</option>
+                        <option>United States</option>
+                        <option>Canada</option>
+                        <option>Mexico</option>
+                        <option>etc...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sm:col-span-2">
+                <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">
+                    Post code
+                </label>
+                <div class="mt-1 rounded-md shadow-sm">
+                    <input id="zip" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                </div>
+            </div>
+
+            @if (ContactType == "Individual")
+            {
+                <div class="sm:col-span-6">
+                    <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">
+                        Date of Birth
+                    </label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input id="account_number" class="form-input block w-full pr-10 sm:text-sm sm:leading-5" placeholder="01/01/1990" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">
+                        Occupation
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="zip" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
+                        Marital Status
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <select id="country" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>Married</option>
+                            <option>Single</option>
+                            <option>etc...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
+                        Sex
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <select id="sex" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>etc...</option>
+                        </select>
+                    </div>
+                </div>
+            }
+            else if (ContactType == "Business")
+            {
+                <div class="sm:col-span-6">
+                    <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">
+                        Date of Incorporation
+                    </label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <input id="account_number" class="form-input block w-full pr-10 sm:text-sm sm:leading-5" placeholder="01/01/1990" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="country" class="block text-sm font-medium leading-5 text-gray-700">
+                        Country of Incorporation
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <select id="country" class="form-select block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <option>Guernsey</option>
+                            <option>United Kingdom</option>
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>Mexico</option>
+                            <option>etc...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6">
+                    <label for="zip" class="block text-sm font-medium leading-5 text-gray-700">
+                        Registration Number
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="zip" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+
+            @*<div class="sm:col-span-2">
+                    <label for="city" class="block text-sm font-medium leading-5 text-gray-700">
+                        City
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="city" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                    <label for="state" class="block text-sm font-medium leading-5 text-gray-700">
+                        State / Province
+                    </label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="state" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                    </div>
+                </div>*@
+
+
+        </div>
+
+
+    </div>
+
+    <div class="mt-8 border-t border-gray-200 pt-5">
+        <div class="flex justify-end">
+            <span class="inline-flex rounded-md shadow-sm">
+                <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                    Cancel
+                </button>
+            </span>
+            <span class="ml-3 inline-flex rounded-md shadow-sm">
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                    Save
+                </button>
+            </span>
+        </div>
+    </div>
+
+    @*<div class="mt-8 border-t border-gray-200 pt-8">
+    </div>*@
+
+</div>
+
+@code {
+    public string ContactType { get; set; } = "Individual";
+    public string Forename { get; set; }
+    public string Surname { get; set; }
+    public string Address { get; set; }
+}
